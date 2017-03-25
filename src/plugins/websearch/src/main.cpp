@@ -47,7 +47,7 @@ namespace {
 
 // http://data.iana.org/TLD/tlds-alpha-by-domain.txt
 // Version 2017032500, Last Updated Sat Mar 25 07:07:02 2017 UTC
-std::array<std::string, 1530> validTlds = { "AAA", "AARP", "ABARTH", "ABB",
+std::array<std::string, 1530> validTlds = { {"AAA", "AARP", "ABARTH", "ABB",
 "ABBOTT", "ABBVIE", "ABC", "ABLE", "ABOGADO", "ABUDHABI", "AC", "ACADEMY",
 "ACCENTURE", "ACCOUNTANT", "ACCOUNTANTS", "ACO", "ACTIVE", "ACTOR", "AD",
 "ADAC", "ADS", "ADULT", "AE", "AEG", "AERO", "AETNA", "AF", "AFAMILYCOMPANY",
@@ -244,7 +244,7 @@ std::array<std::string, 1530> validTlds = { "AAA", "AARP", "ABARTH", "ABB",
 "XN--Y9A3AQ", "XN--YFRO4I67O", "XN--YGBI2AMMX", "XN--ZFR164B", "XPERIA", "XXX",
 "XYZ", "YACHTS", "YAHOO", "YAMAXUN", "YANDEX", "YE", "YODOBASHI", "YOGA",
 "YOKOHAMA", "YOU", "YOUTUBE", "YT", "YUN", "ZA", "ZAPPOS", "ZARA", "ZERO",
-"ZIP", "ZIPPO", "ZM", "ZONE", "ZUERICH", "ZW"
+"ZIP", "ZIPPO", "ZM", "ZONE", "ZUERICH", "ZW"}
 };
 
 
@@ -722,9 +722,9 @@ bool Websearch::Extension::insertRows(int position, int rows, const QModelIndex 
         d->searchEngines.insert(d->searchEngines.begin() + row,
                               SearchEngine({false,
                                             "<name>",
-                                            "<http://url/containing/the/?query=%s>",
                                             "<trigger>",
-                                            ":default"}));
+                                            ":default",
+                                            "<http://url/containing/the/?query=%s>"}));
     }
     endInsertRows();
 
